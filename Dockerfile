@@ -1,20 +1,15 @@
-# base image
-FROM disrvptor/node-chrome-firefox
-
-# set working directory
-RUN mkdir /usr/src/app
+# FROM johnpapa/angular-cli as angular-built
+# Using the above image allows us toskip the angular-cli install
+FROM node:8.9-alpine as angular-built
 WORKDIR /usr/src/app
+RUN npm i -g @angular/cli
+COPY package.json package.json
+RUN npm install --silent
+COPY . .
+RUN ng build --prod --build-optimizer
 
-# add `/usr/src/app/node_modules/.bin` to $PATH
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-
-# install and cache app dependencies
-COPY package.json /usr/src/app/package.json
-RUN npm install
-RUN npm install -g @angular/cli@1.7.1
-
-# add app
-COPY . /usr/src/app
-
-# start app
-CMD ng serve --host 0.0.0.0 --disable-host-check 
+FROM nginx:alpine
+LABEL author="John Papa"
+COPY --from=angular-built /usr/src/app/dist /usr/share/nginx/html
+EXPOSE 80 443
+CMD [ "nginx", "-g", "daemon off;" ]
