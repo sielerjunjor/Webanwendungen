@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+    "uid": "5c18ba4489fa360001c6f443",
+    "projectName": "TestProjekt",
+    "riskName": "Failure",
+    "riskCriticality": "high",
+    "riskProbability": "low",
+    "riskMeassure": "kill yourself",
+    "description": "Example Project Risk"
+    },
+    {
+      "uid": "5c18ba4489fa360001c6f444",
+      "projectName": "Retirement",
+      "riskName": "BU",
+      "riskCriticality": "low",
+      "riskProbability": "high",
+      "riskMeassure": "loose Job",
+      "description": "next Project Risk"
+      }
+    ]
+}

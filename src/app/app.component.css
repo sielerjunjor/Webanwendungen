@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box; 
+  }
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+  }
+  
+  nav {
+    flex: 1;
+  }
+  
+  #main {
+    display: flex;
+    flex: 1;
+  }
+  #main > article {
+    flex: 2;
+  }
+  #main > nav, 
+  #main > aside {
+    background: beige;
+  }
+  #main > nav {
+    order: -1;
+  }
+  header, footer {
+    background: yellowgreen;
+    height: 20vh;
+  }
+  header, footer, article, nav {
+    padding: 1em;
+  }
+  @media screen and (max-width: 1000px) {
+    #main {
+      flex-direction: column;
+    }
+  }

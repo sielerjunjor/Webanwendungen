@@ -1,7 +1,4 @@
-# RiskmanagementFE
-To deploy this app to OpenShift you need to use this command:
-oc new-app bucharestgold/centos7-s2i-web-app:latest~https://github.com/sielerjunjor/WebanwendungenFrontend
-
+# FrontApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
