@@ -1,15 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
-interface Project{
-  uid;
-  projektName;
-  riskName;
-  riskCriticality;
-  riskProbability;
-  riskMessure;
-  description;
-}
+import {Project}from'../Project';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,5 +22,8 @@ export class ApiService {
   }
   getProjects(){
     return this.http.get<Array<Project>>(this.ROOT_URL, {responseType : 'json'})
+  }
+  postProjects(project:Project){
+    return this.http.post(this.ROOT_URL,project,{responseType:'json'})
   }
 }

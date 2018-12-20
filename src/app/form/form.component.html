@@ -10,13 +10,13 @@
       <div class="col-md-5">
         <div class="input-group">
           
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <button type="button" (click)="postProj()" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
               Open/Create
             </button>
-            <input id="typeahead-basic" type="text" name="ProjectSelection" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [ngModelOptions]="{standalone: true}"/>
+            <input id="typeahead" type="text" name="ProjectSelection" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [ngModelOptions]="{standalone: true}"/>
             <ul>
                 <li *ngFor="let row of rows; let i = index">
-                  {{i}} {{row.projectName}}
+                 <!-- {{i}}--> {{row.projectName}}
                 </li>
             </ul>
         </div>
@@ -27,7 +27,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="textinput">Risk Name</label>  
       <div class="col-md-5">
-      <input id="textinput" name="textinput" type="text" placeholder="insert Risk Name" class="form-control input-md">
+      <textarea id="riskName" name="textarea" type="text" class="form-control">insert Risk Name here </textarea>
         
       </div>
     </div>
@@ -36,7 +36,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="textarea">Risk Description</label>
       <div class="col-md-4">                     
-        <textarea class="form-control" id="textarea" name="textarea">Insert Risk Description here</textarea>
+        <textarea class="form-control" id="descriptionText" name="textarea">Insert Risk Description here</textarea>
       </div>
     </div>
     
@@ -44,7 +44,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="propbality">Select Propability</label>
       <div class="col-md-5">
-        <select id="propbality" name="propbality" class="form-control">
+        <select id="probability" name="probability" class="form-control">
           <option value="1">Option one</option>
           <option value="2">Option two</option>
         </select>
